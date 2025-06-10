@@ -1,4 +1,4 @@
-#import "@local/mytemplate:1.0.0": *
+#import "@preview/scripst:1.1.1": *
 #import "@preview/physica:0.9.2": *
 
 = 门电路
@@ -8,22 +8,23 @@
 #grid(
   columns: (1fr, 1fr, 1fr),
   [*结构*
-- 分层设计
-- 每个层次的复杂性有限
-- 可重复使用的构件],
+    - 分层设计
+    - 每个层次的复杂性有限
+    - 可重复使用的构件
+  ],
   [
-*接口*
-- 系统工程的关键要素
-- 隔离技术，允许演进
-- 主要抽象机制
+    *接口*
+    - 系统工程的关键要素
+    - 隔离技术，允许演进
+    - 主要抽象机制
   ],
   [
     *什么是好的系统设计？*
-- 最小的机制，最大的功能
-- 在各种环境下都可靠
-- 适应未来的技术改进
+    - 最小的机制，最大的功能
+    - 在各种环境下都可靠
+    - 适应未来的技术改进
 
-  ]
+  ],
 )
 
 *获得高、低电平的基本原理*：
@@ -118,17 +119,18 @@ CMOS可以理解为两个变化相反的可变电阻串联，从而起到开关�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-    image("pic/2024-04-02-09-24-30.png", width: 80%),
-    caption: [
-      电压传输特性
-    ],
-  )],
+      image("pic/2024-04-02-09-24-30.png", width: 80%),
+      caption: [
+        电压传输特性
+      ],
+    )],
   [
-    - AB段：$V_I < V_"GS(TH)N"$，$T_1$导通、$T_2$截止；$V_O = V_(O H) =  V_"DD"$
+    - AB段：$V_I < V_"GS(TH)N"$，$T_1$导通、$T_2$截止；$V_O = V_(O H) = V_"DD"$
 
-    - CD段：$V_I > V_"DD" - |V_"GS(TH)N"|$，$T_1$截止、$T_2$导通；$V_O = V_(O L) =  0$
-    - BC段：$V_"GS(TH)N" < V_I < V_"DD" - |V_"GS(TH)N"$，$T_1$、$T_2$同时导通；如若$T_1,T_2$参数完全对称，则$V_I = 1/2 V_"DD"$时，$V_O = 1/2 V_"DD"$
+    - CD段：$V_I > V_"DD" - |V_"GS(TH)N"|$，$T_1$截止、$T_2$导通；$V_O = V_(O L) = 0$
+    - BC段：$V_"GS(TH)N" < V_I < V_"DD" - |V_"GS(TH)N"$，$T_1$、$T_2$同时导通；如若$T_1,T_2$参数完全对称，则$V_I = 1 / 2 V_"DD"$时，$V_O = 1 / 2 V_"DD"$
   ],
+
   [
     #figure(
       image("pic/2024-04-02-09-24-58.png", width: 80%),
@@ -139,7 +141,7 @@ CMOS可以理解为两个变化相反的可变电阻串联，从而起到开关�
   ],
   [
     这也意味着在电位（逻辑）转换的时候，电路的功率消耗会变大；保持稳定时，功率消耗较小。
-  ]
+  ],
 )
 
 === 输入噪声容限
@@ -211,16 +213,16 @@ CMOS可以理解为两个变化相反的可变电阻串联，从而起到开关�
 
 前级提供R，后级提供C。
 $
-R = rho l/A\
-C = epsilon A/d\
-V(t) = V(oo) + (V(0) - V(oo)) e^(-t/(R C))
+  R = rho l / A\
+  C = epsilon A / d\
+  V(t) = V(oo) + (V(0) - V(oo)) e^(-t / (R C))
 $
 从而能够得到：
 $
-t &= R C ln((V(0) - V(oo))/(V(t) - V(oo)))\
-&= R C ln((V(oo) - V_"OL")/ (V(oo) - V(t)))\
-&= R C ln((V_"DD" - V(0))/ (V_"DD" - V_"TH"))\
-&approx R C ln 2
+  t &= R C ln((V(0) - V(oo)) / (V(t) - V(oo)))\
+  &= R C ln((V(oo) - V_"OL") / (V(oo) - V(t)))\
+  &= R C ln((V_"DD" - V(0)) / (V_"DD" - V_"TH"))\
+  &approx R C ln 2
 $
 #newpara()
 
@@ -249,9 +251,7 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
   ],
 )
 
-#figure(
-  image("pic/2024-04-11-01-30-31.png", width: 80%),
-)
+#figure(image("pic/2024-04-11-01-30-31.png", width: 80%))
 
 二者数量级相同，但是TPD要比TCD大。
 
@@ -271,7 +271,6 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
       ],
     )
   ],
-
   [
     #figure(
       image("pic/pic/2024-04-09-08-09-19.png.png", width: 80%),
@@ -279,7 +278,7 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
         负脉冲噪声容限
       ],
     )
-  ]
+  ],
 )
 
 ==== 扇出系数（Fan-out）（带负载能力（动态） ）
@@ -295,7 +294,7 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
 2.动态功耗
 
 - 导通功耗
-  
+
 #figure(
   image("pic/2024-04-11-01-34-19.png", width: 40%),
   caption: [
@@ -316,23 +315,23 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
 负载电容充放电功耗$P_C$
 - 当$V_I arrow.t$，$C_L$经$T_2$放电，有
   $
-  i_N = C_L dd(v_O)/dd(t) = - C_L dd((V_"DD" - v_O))/dd(t)
+    i_N = C_L dd(v_O) / dd(t) = - C_L dd((V_"DD" - v_O)) / dd(t)
   $
 - 当$V_I arrow.b$，$V_"DD"$经$T_1$充电，有
   $
-  i_P = C_L dd(v_O)/dd(t)
+    i_P = C_L dd(v_O) / dd(t)
   $
 得到平均功率
-  $
-  P_C = 1/T integral_0^(T/2) i_N v_O dd(t) + 1/T integral_(T/2)^T i_P (V_"DD" - v_O) dd(t) = C_L V_"DD"^2 f
-  $
+$
+  P_C = 1 / T integral_0^(T / 2) i_N v_O dd(t) + 1 / T integral_(T / 2)^T i_P (V_"DD" - v_O) dd(t) = C_L V_"DD"^2 f
+$
 
 - 总功耗
   $
-  P("总功耗") = P_D("动态功耗") + P_S("静态功耗")\
-  P_D = P_C("负载功耗") + P_T("导通功耗")\
-  P_T = C_(P D) V_"DD"^2 f\
-  P_C = C_L V_"DD"^2 f
+    P("总功耗") = P_D("动态功耗") + P_S("静态功耗")\
+    P_D = P_C("负载功耗") + P_T("导通功耗")\
+    P_T = C_(P D) V_"DD"^2 f\
+    P_C = C_L V_"DD"^2 f
   $
 
 == 其他类型的CMOS门电路
@@ -365,7 +364,6 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
       ],
     )
   ],
-
   [
     #figure(
       image("pic/2024-04-09-08-57-58.png", width: 80%),
@@ -373,7 +371,7 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
         或非门
       ],
     )
-  ]
+  ],
 )
 
 ==== 带缓冲极的CMOS门
@@ -462,7 +460,7 @@ TCD（contamination delay time）：是从输入信号开始有效值切换后�
 )
 
 $
-bold(Y) = f(bold(A))
+  bold(Y) = f(bold(A))
 $
 
 == 组合逻辑电路的设计方法
@@ -497,10 +495,9 @@ _设计举例：设计一个监视交通信号灯状态的逻辑电路_
       caption: [
         真值表
       ],
-      kind: table
+      kind: table,
     )
   ],
-
   [
     #figure(
       image("pic/2024-04-11-08-27-30.png", width: 50%),
@@ -515,7 +512,7 @@ _设计举例：设计一个监视交通信号灯状态的逻辑电路_
         逻辑电路
       ],
     )
-  ]
+  ],
 )
 
 我们寻求通用性的硬件，而不是对于每一种电路都要重新设计一次。
@@ -538,15 +535,15 @@ _设计举例：设计一个监视交通信号灯状态的逻辑电路_
   caption: [
     真值表
   ],
-  kind: table
+  kind: table,
 )
 
 === 多位加法器
 
 $
-(C I)_i = (C O)_(i-1)\
-S_i = A_i plus.circle B_i plus.circle (C I)_i\
-(C O)_i = (A_i B_i) + (A_i + B_i) (C I)_i
+  (C I)_i = (C O)_(i-1)\
+  S_i = A_i plus.circle B_i plus.circle (C I)_i\
+  (C O)_i = (A_i B_i) + (A_i + B_i) (C I)_i
 $
 
 ==== 串行进位加法器
@@ -566,7 +563,7 @@ $
 
 _例如：8421码转余3码_
 $
-Y_3Y_2Y_1Y_0 = D C B A + 0011
+  Y_3Y_2Y_1Y_0 = D C B A + 0011
 $
 
 == 若干常用组合逻辑电路
@@ -599,13 +596,13 @@ $
   caption: [
     真值表
   ],
-  kind: table
+  kind: table,
 )
 
 $
-Y_2 = I_4 + I_5 + I_6 + I_7\
-Y_1 = I_2 + I_3 + I_6 + I_7\
-Y_0 = I_1 + I_3 + I_5 + I_7
+  Y_2 = I_4 + I_5 + I_6 + I_7\
+  Y_1 = I_2 + I_3 + I_6 + I_7\
+  Y_0 = I_1 + I_3 + I_5 + I_7
 $
 
 #figure(
@@ -636,7 +633,7 @@ $
   caption: [
     真值表
   ],
-  kind: table
+  kind: table,
 )
 
 低电平有效：抗干扰能力强；对于TTL电路，输入端悬空、输出为高电平。
@@ -650,7 +647,7 @@ $
 
 $S'$选通信号：当$S = 0$时候，电路不工作；当$S = 1$时候，电路工作。
 $
-Y_2' = ((I_4 + I_5 + I_6 + I_7) S)'\
+  Y_2' = ((I_4 + I_5 + I_6 + I_7) S)'\
 $
 #newpara()
 $Y_S '$为0时，电路允许工作，无编码输入。
@@ -666,9 +663,9 @@ $Y_(E X) '$为0时，电路允许工作，有编码输入。
     |0 | 0 | 不可能出现|
   ],
   caption: [
-    附加输出信号的状态及含意   
+    附加输出信号的状态及含意
   ],
-  kind: table
+  kind: table,
 )
 
 控制端扩展功能举例：用两片8线-3线优先编码器$=>$16线-4线优先编码器
@@ -706,7 +703,7 @@ $Y_(E X) '$为0时，电路允许工作，有编码输入。
   caption: [
     3线-8线二进制译码器
   ],
-  kind: table
+  kind: table,
 )
 
 #figure(
@@ -727,10 +724,10 @@ $Y_(E X) '$为0时，电路允许工作，有编码输入。
 
 对于每一个$Y_i$都相当于一个二极管与门，恰好对应相应的输入。
 $
-Y_0 = A_2' A_1' A_0' = m_0\
-Y_1 = A_2' A_1' A_0 = m_1\
-...\
-Y_7 = A_2 A_1 A_0 = m_7
+  Y_0 = A_2' A_1' A_0' = m_0\
+  Y_1 = A_2' A_1' A_0 = m_1\
+  ...\
+  Y_7 = A_2 A_1 A_0 = m_7
 $
 
 利用门电路实现：
@@ -762,7 +759,7 @@ $
   caption: [
     3线-8线二进制译码器
   ],
-  kind: table
+  kind: table,
 )
 
 利用附加控制端进行扩展：用74HC138（3线—8线译码器）$=>$4线—16线译码器
@@ -807,7 +804,7 @@ $
 
 全灯测试$L T'$：使所有灯亮起，用于测试。
 
-灭零输入$R B O'/ R B I'$：使所有灯熄灭。
+灭零输入$R B O' / R B I'$：使所有灯熄灭。
 
 #figure(
   image("pic/2024-04-16-08-40-05.png", width: 80%),
@@ -885,36 +882,35 @@ Tolerates transitions -- and invalid levels -- on irrelevant inputs!
   columns: (1fr, 1fr),
   [
     #figure(
-    three-line-table[
-      |A|B|Y|
-      |--|--|--|
-      |0|0|1|
-      |0|1|1|
-      |1|0|1|
-      |1|1|0|
-    ],
-    caption: [
-      与非门
-    ],
-    kind: table
-  )
+      three-line-table[
+        |A|B|Y|
+        |--|--|--|
+        |0|0|1|
+        |0|1|1|
+        |1|0|1|
+        |1|1|0|
+      ],
+      caption: [
+        与非门
+      ],
+      kind: table,
+    )
   ],
-
   [
-  #figure(
-    three-line-table[
-      |A|B|Y|
-      |--|--|--|
-      |0|0|1|
-      |x|1|1|
-      |1|x|1|
-    ],
-    caption: [
-      与非门
-    ],
-    kind: table
-  )
-  ]
+    #figure(
+      three-line-table[
+        |A|B|Y|
+        |--|--|--|
+        |0|0|1|
+        |x|1|1|
+        |1|x|1|
+      ],
+      caption: [
+        与非门
+      ],
+      kind: table,
+    )
+  ],
 )
 
 === 竞争-冒险现象及成因
@@ -929,7 +925,7 @@ Tolerates transitions -- and invalid levels -- on irrelevant inputs!
 
 - General ICs——通用型
 - Application-Specific ICs——专用型
-  
+
 PLD的特点：是一种按通用器件来生产，但逻辑功能是由用户通过对器件编程来设定的。
 
 EDA：电⼦产品从设计、仿真调试、硬件实现全过程⾃动化。
@@ -1024,7 +1020,7 @@ EDA的技术特征
   caption: [
     SR锁存器的真值表
   ],
-  kind: table
+  kind: table,
 )
 
 其中$Q^*$表示$Q$的下一状态。
@@ -1148,7 +1144,7 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
   caption: [
     主从SR触发器的真值表
   ],
-  kind: table
+  kind: table,
 )
 === 主从JK触发器
 
@@ -1178,7 +1174,7 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
   caption: [
     主从JK触发器的真值表
   ],
-  kind: table
+  kind: table,
 )
 
 #figure(
@@ -1195,8 +1191,8 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
   - 第二步CKL $arrow.b$到达后，“从”按“主”状态翻转
   输出状态只能改变一次
 2. 主从SR，“主”为同步SR，CKL=1的全部时间里输入信号对“主”都起控制作用；但主从 在高电平期间，“主”只可能翻转一次
-   
-   在CKL=1期间里输入发生变化时，要找出CKL $arrow.b$前$Q$最后的状态，决定$Q^*$。
+
+  在CKL=1期间里输入发生变化时，要找出CKL $arrow.b$前$Q$最后的状态，决定$Q^*$。
 
 
 == 边沿触发的触发器
@@ -1223,7 +1219,7 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
 
 #figure(
   image("pic/2024-05-11-00-05-04.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
@@ -1235,7 +1231,7 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
 
 #figure(
   image("pic/2024-05-11-00-13-48.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 这是一个上升沿的触发器。
@@ -1251,7 +1247,7 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
 
 #figure(
   image("pic/2024-05-11-00-22-42.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 
@@ -1265,8 +1261,8 @@ Q 仅在 CLK 的 0 - 1 转换后发生变化，因此触发器似乎是由 CLK �
 
 凡在时钟信号作用下，具有如下功能的触发器称为SR触发器
 $
-Q^* = S'R'Q + S R'Q' + S R'Q = A'R'Q+S R' = S + R'Q\
-S R = 0
+  Q^* = S'R'Q + S R'Q' + S R'Q = A'R'Q+S R' = S + R'Q\
+  S R = 0
 $
 
 #figure(
@@ -1287,7 +1283,7 @@ $
 
 状态方程
 $
-Q^* = J'Q' + K Q
+  Q^* = J'Q' + K Q
 $
 
 #figure(
@@ -1308,7 +1304,7 @@ $
 
 状态方程
 $
-Q^* = T'Q + T'Q
+  Q^* = T'Q + T'Q
 $
 #figure(
   image("pic/2024-05-11-00-33-08.png", width: 80%),
@@ -1327,7 +1323,7 @@ $
 
 状态方程
 $
-Q^* = D
+  Q^* = D
 $
 
 #figure(
@@ -1360,27 +1356,27 @@ $
 
 #figure(
   image("pic/2024-05-11-21-26-36.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-21-27-14.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-21-28-00.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-21-28-34.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-21-29-13.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 寄存器
@@ -1397,7 +1393,7 @@ $
 
 #figure(
   image("pic/2024-05-11-21-04-52.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 
@@ -1526,7 +1522,7 @@ $R \/ W' = 0$，则$A_1$截至，$A_2,A_3$导通，$I \/ O -> Q$，此时存储�
   caption: [
     掩模ROM的数据表
   ],
-  kind: table
+  kind: table,
 )
 
 #figure(
@@ -1622,7 +1618,7 @@ $R \/ W' = 0$，则$A_1$截至，$A_2,A_3$导通，$I \/ O -> Q$，此时存储�
 )
 
 
-===  存储器容量的扩展
+=== 存储器容量的扩展
 
 ==== 位扩展方式
 
@@ -1692,19 +1688,19 @@ $R \/ W' = 0$，则$A_1$截至，$A_2,A_3$导通，$I \/ O -> Q$，此时存储�
 - 输出方程
 
 $
-Y = F (X , Q)
+  Y = F (X , Q)
 $
 
 - 驱动方程
 
 $
-Y = G (X , Q)
+  Y = G (X , Q)
 $
 
 - 状态方程
 
 $
-Q^* = H (Z , Q)
+  Q^* = H (Z , Q)
 $
 
 === 时序电路的分类
@@ -1809,8 +1805,8 @@ $Y$一定使用现态的$Q$计算的，而不是次态的$Q^*$。
 可知：在多位二进制数末位加1，若第i位以下皆为1时，则第i位应翻转。
 由此得出规律，若用T触发器构成计数器，则第i位触发器输入端$T_i$的逻辑式应为：
 $
-T_i = Q_(i-1) Q_(i-2) ... Q_0\
-T_0 = 1
+  T_i = Q_(i-1) Q_(i-2) ... Q_0\
+  T_0 = 1
 $
 
 #figure(
@@ -1832,7 +1828,7 @@ $
   caption: [
     74161的扩展接口
   ],
-  kind: table
+  kind: table,
 )
 
 ==== 同步二进制减法计数器
@@ -1841,8 +1837,8 @@ $
 
 由此得出规律，若用T触发器构成计数器，则第i位触发器输入端$T_i$的逻辑式应为：
 $
-T_i = Q'_(i-1) Q'_(i-2) ... Q'_0\
-T_0 = 1
+  T_i = Q'_(i-1) Q'_(i-2) ... Q'_0\
+  T_0 = 1
 $
 
 #figure(
@@ -1861,8 +1857,8 @@ $
 器件实例：74LS191（用T触发器）
 
 $
-T_i = (U' \/ D)' product_(i=0)^(i-1) Q_i + (U' \/ D) product_(i=0)^(i-1) Q'_i\
-T_0 = 1
+  T_i = (U' \/ D)' product_(i=0)^(i-1) Q_i + (U' \/ D) product_(i=0)^(i-1) Q'_i\
+  T_0 = 1
 $
 
 #figure(
@@ -1877,7 +1873,7 @@ $
   caption: [
     74LS191扩展接口
   ],
-  kind: table
+  kind: table,
 )
 
 ===== 双时钟方式
@@ -1885,8 +1881,8 @@ $
 加和减分别用两个时钟输入端
 
 $
-C L K_i = C L K_U product_(i=0)^(i-1) Q_i + C L K_D product_(i=0)^(i-1) Q'_i\
-C L K_0 = C L K_U + C L K_D
+  C L K_i = C L K_U product_(i=0)^(i-1) Q_i + C L K_D product_(i=0)^(i-1) Q'_i\
+  C L K_0 = C L K_U + C L K_D
 $
 
 #figure(
@@ -1909,10 +1905,10 @@ $
 )
 
 $
-T_0 = 1\
-T_1 = Q_0 Q'_3\
-T_2 = Q_0 Q_1\
-T_3 = Q_1 Q_2 Q_3 + Q_3 Q_0
+  T_0 = 1\
+  T_1 = Q_0 Q'_3\
+  T_2 = Q_0 Q_1\
+  T_3 = Q_1 Q_2 Q_3 + Q_3 Q_0
 $
 
 器件实例：74160
@@ -1929,7 +1925,7 @@ $
   caption: [
     74160扩展接口
   ],
-  kind: table
+  kind: table,
 )
 
 ===== 减法计数器
@@ -1937,10 +1933,10 @@ $
 基本原理：对二进制减法计数器进行修改，在0000时减“1”后跳变为1001，然后按二进制减法计数就行了。
 
 $
-T_0 = 1\
-T_1 = Q'_0(Q'_3 Q'_2 Q'_1)'\
-T_2 = Q'_1Q'_0(Q'_3 Q'_2 Q'_1)'\
-T_3 = Q_2 Q_1 Q_0
+  T_0 = 1\
+  T_1 = Q'_0(Q'_3 Q'_2 Q'_1)'\
+  T_2 = Q'_1Q'_0(Q'_3 Q'_2 Q'_1)'\
+  T_3 = Q_2 Q_1 Q_0
 $
 
 #figure(
@@ -2067,7 +2063,7 @@ N1和N2间的连接有两种方式：
 这是一个巡检电路，可以依次对每个$P_i$进行控制。
 
 将译码器的$S_1$接入CLK，这是为了在CLK=0时候可以规避竞争冒险。
- 
+
 ==== 序列脉冲发生器
 
 计数器+数据选择器→序列脉冲发生器
@@ -2083,7 +2079,7 @@ N1和N2间的连接有两种方式：
 
 #figure(
   image("pic/2024-05-11-08-13-02.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
@@ -2095,38 +2091,38 @@ N1和N2间的连接有两种方式：
 
 #figure(
   image("pic/2024-05-11-08-23-15.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-08-40-11.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 次态和输出一致，$S_2,S_3$可以合并。
 
 #figure(
   image("pic/2024-05-11-08-41-33.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-11-08-42-41.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 对于自启动，可以在设计的时候就解决。
 
 #figure(
   image("pic/2024-05-11-09-07-53.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 一般情况下Mealy和Moore型都能实现，但是Moore型用的状态更多。
 
 #figure(
   image("pic/2024-05-11-09-08-40.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 单时钟同步电路
@@ -2142,21 +2138,21 @@ N1和N2间的连接有两种方式：
 
 #figure(
   image("pic/2024-05-18-21-40-32.png", width: 40%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-14-08-13-45.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 输出时序限制：
 - Propagation delay传播延迟：$t_"pcq"$ = 保证输出 Q 稳定（即停止变化）的时钟沿后时间
-- Contamination delay：$t_"ccq"$ =  时钟边沿后 Q 可能不稳定（即开始变化）的时间
+- Contamination delay：$t_"ccq"$ = 时钟边沿后 Q 可能不稳定（即开始变化）的时间
 
 #figure(
   image("pic/2024-05-18-22-20-56.png", width: 50%),
-  numbering: none
+  numbering: none,
 )
 
 输入时序限制：
@@ -2164,7 +2160,7 @@ N1和N2间的连接有两种方式：
 - Hold time：$t_"hold"$ = 时钟沿后的时间数据必须稳定（即不变化）
 - Aperture time：$t_"a "$ = 时钟边缘时间数据必须稳定
 $
-t_"a" = t_"setup" + t_"hold"
+  t_"a" = t_"setup" + t_"hold"
 $
 
 #newpara()
@@ -2174,12 +2170,12 @@ $
 - 寄存器 R2 的输入必须在时钟边沿之前至少$t_"setup"$保持稳定。
 
 $
-T_c ≥ t_"pcq" + t_"pd" + t_"setup"
+  T_c ≥ t_"pcq" + t_"pd" + t_"setup"
 $
 
 #figure(
   image("pic/2024-05-18-22-26-17.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 保持时间限制：
@@ -2187,18 +2183,18 @@ $
 - 寄存器 R2 的输入必须在时钟沿后至少保持 $t_"hold"$ 稳定
 
 $
-t_"hold" < t_"ccq" + t_"cd"
+  t_"hold" < t_"ccq" + t_"cd"
 $
 
 #figure(
   image("pic/2024-05-18-22-29-34.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 *综上，动态时间要求：*
 $
-T_c ≥ t_"pcq" + t_"pd" + t_"setup"\
-t_"cd" > t_"hold" - t_"ccq"
+  T_c ≥ t_"pcq" + t_"pd" + t_"setup"\
+  t_"cd" > t_"hold" - t_"ccq"
 $
 
 === 时序电路小结
@@ -2215,7 +2211,7 @@ Digital Time:
 
 ==== FSM 的局限性
 - 尽管 FSM 具有实用性和灵活性，但仍有一些常见问题是 FSM 无法计算的。例如
-  
+
   _格式良好的括号检查器： 给定任何左右括号编码字符串，如果平衡，则输出 1，否则输出 0。这个装置是否等同于我们列举的一种 FSM？_
 问题：需要*任意*多个状态，取决于输入。必须 "计算 "未匹配的后缀。一个 FSM 只能记录无数个不匹配的后缀：对于每一个 FSM，我们都能找到一个它无法检查的字符串。
 
@@ -2307,7 +2303,7 @@ K 级流水线（"K-流水线"）是一种非循环电路，从输入到输出�
 
 #figure(
   image("pic/2024-05-19-01-19-27.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 利用选择器，可以将两个同样地元件按照不同的时钟信号进行切换，起到交错的作用。这样可以提高整体的THROUGHPUT。
@@ -2329,77 +2325,77 @@ PROM是最早的PLD
 
 #figure(
   image("pic/2024-05-19-01-35-38.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-36-20.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-36-52.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-37-21.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-38-23.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-38-55.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-39-17.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-39-52.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-40-25.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-41-04.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-41-36.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-42-05.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-42-40.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-45-48.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-19-01-46-26.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 = 脉冲波形的产生和整形
@@ -2419,20 +2415,20 @@ PROM是最早的PLD
 
 == 施密特触发器（常用的一类脉冲整形电路）
 
-===  用门电路组成的施密特触发器
+=== 用门电路组成的施密特触发器
 
 考虑下面的电路：
 #figure(
   image("pic/2024-05-19-01-48-22.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 当$V_I = 0$时，$V_O = 0$。
 
 当$V_I arrow.t$至$V_A = V_"TH"$时，进入传输特性的放大区，故$V_"A " arrow.t -> V_"O1" arrow.b -> V_O arrow.t -> V_"A " arrow.t$形成正反馈。使电路迅速跳变到$V_O = V_"OH"$。
 $
-V_A = V_"TH" = (R_2)/(R_1 + R_2) V_I\
-V_I = v_"T+" = (1 + R_2/R_1) V_"TH"\
+  V_A = V_"TH" = (R_2) / (R_1 + R_2) V_I\
+  V_I = v_"T+" = (1 + R_2 / R_1) V_"TH"\
 $
 
 #newpara()
@@ -2441,8 +2437,8 @@ $
 
 当$V_I arrow.t$至$V_A = V_"TL"$时，进入传输特性的放大区，故$V_"A " arrow.t -> V_"O1" arrow.b -> V_O arrow.t -> V_"A " arrow.t$形成正反馈。使电路迅速跳变到$V_O = V_"OL"$。
 $
-V_A = V_"TH" = (V_"DD" - V_I) R_1/(R_1 + R_2) + V_I\
-V_I = v_"T-" = (1 - R_1/R_2) V_"TL"\
+  V_A = V_"TH" = (V_"DD" - V_I) R_1 / (R_1 + R_2) + V_I\
+  V_I = v_"T-" = (1 - R_1 / R_2) V_"TL"\
 $
 
 #figure(
@@ -2464,9 +2460,9 @@ $
 *施密特触发器的主要特点：*
 输入信号在上升和下降过程中，电路状态转换的输入电平不同。电路状态转换时有正反馈过程，使输出波形边沿变陡。
 
-===  施密特触发器的应用
+=== 施密特触发器的应用
 
-==== 用于波形变换 
+==== 用于波形变换
 
 #figure(
   image("pic/2024-05-19-02-22-16.png", width: 30%),
@@ -2518,7 +2514,7 @@ $
 
 #figure(
   image("pic/2024-05-21-08-16-41.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 将一个长的脉冲变成一个短的脉冲。
@@ -2558,7 +2554,7 @@ $
 
 #figure(
   image("pic/2024-05-21-08-45-47.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 用二极管来选择电阻进行占空比的调节。
@@ -2569,7 +2565,7 @@ $
 
 #figure(
   image("pic/2024-05-21-08-54-57.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 有时延的负反馈环路，可以产生振荡。
@@ -2578,14 +2574,14 @@ $
 
 #figure(
   image("pic/2024-05-21-08-58-01.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 第一步的图中，由于电容的存在，增加了充放电的时间，周期变成了$12 t_"pd"$。
 
 #figure(
   image("pic/2024-05-21-09-14-52.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 注意$V_(I 3)$处的跳变。
@@ -2596,7 +2592,7 @@ $
 
 #figure(
   image("pic/2024-05-21-09-20-21.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 555定时器
@@ -2626,26 +2622,26 @@ $
     |$R'_D$|$V_(I 1)$|$V_(I 2)$|$V_O$|$T_D$|
     |----|--|--|--|--|
     |0|x|x|0|导通|
-    |1|$>2/3 V_"CC"$|$>1/3 V_"CC"$|0|导通|
-    |1|$<2/3 V_"CC"$|$>1/3 V_"CC"$|不变|不变|
-    |1|$<21/3 V_"CC"$|$<2/3 V_"CC"$|1|截止|
-    |1|$>2/3 V_"CC"$|$<1/3 V_"CC"$|1|截止|
+    |1|$>2 / 3 V_"CC"$|$>1 / 3 V_"CC"$|0|导通|
+    |1|$<2 / 3 V_"CC"$|$>1 / 3 V_"CC"$|不变|不变|
+    |1|$<21 / 3 V_"CC"$|$<2 / 3 V_"CC"$|1|截止|
+    |1|$>2 / 3 V_"CC"$|$<1 / 3 V_"CC"$|1|截止|
   ],
-  numbering: none
+  numbering: none,
 )
 
 === 用555定时器接成施密特触发器
 
 #figure(
   image("pic/2024-05-23-08-25-03.png", width: 60%),
-  numbering: none
+  numbering: none,
 )
 
 === 用555实现多谐
 
 #figure(
   image("pic/2024-05-23-08-27-25.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 $R_1$不能太小，否则管子会烧掉；$R_2$不能太大，否则无法达到高电平。
@@ -2663,23 +2659,23 @@ $R_1$不能太小，否则管子会烧掉；$R_2$不能太大，否则无法达�
 
 #figure(
   image("pic/2024-05-23-08-34-12.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-23-08-38-20.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-23-08-40-02.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 性能参数：暂稳态输出有宽度要求，否则导致$Q$始终为1。
 
 $
-t_w = R C ln (V_"CC" - 0)/(V_"CC" - 2/3 V_"CC") = R C ln 3
+  t_w = R C ln (V_"CC" - 0) / (V_"CC" - 2 / 3 V_"CC") = R C ln 3
 $
 
 如果宽度过宽，可以用微分电路（$V_I$取一个电容到新输入$V'_I$，在$V_I$与$V_"CC"$接一个电阻）只取一个边沿。
@@ -2690,7 +2686,7 @@ $
 
 #figure(
   image("pic/2024-05-23-09-26-29.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 
@@ -2702,7 +2698,7 @@ $
 
 #figure(
   image("pic/2024-05-28-08-11-01.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 利用电容连接信号源与放大电路、放大电路的前后级、放大电路与负载，为阻容耦合。
 
@@ -2710,7 +2706,7 @@ $
 
 #figure(
   image("pic/2024-05-28-08-13-12.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 Q点互相影响。
@@ -2719,7 +2715,7 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-14-39.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 低频特性差。
@@ -2728,12 +2724,12 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-16-11.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-28-08-16-48.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 多级放大电路的动态分析
@@ -2741,16 +2737,16 @@ Q点互相影响。
 ==== 交流分析
 
 1. 电压放大倍数
-   
-   $
-   dot(A) = product_(i=1)^n dot(A)_i
-   $
+
+  $
+    dot(A) = product_(i=1)^n dot(A)_i
+  $
 2. 输入电阻
 3. 输出电阻
 
 #figure(
   image("pic/2024-05-28-08-23-17.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 集成运算放大电路简介
@@ -2853,7 +2849,7 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-36-42.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 产生原因：温度变化，直流电源波动，元器件老化。其中晶体管的特性对温度敏感是主要原因，故也称零漂为温漂。
@@ -2868,7 +2864,7 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-41-19.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 需要一种放大电路，对$u_(I 1)$和$u_(I 2)$共同的部分不放大，仅对它们的差值放大。
@@ -2877,7 +2873,7 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-45-31.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 利用镜像电路，可以保证两边温漂相同。
@@ -2886,50 +2882,50 @@ Q点互相影响。
 
 #figure(
   image("pic/2024-05-28-08-52-28.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 2. Q点分析
 
 $
-I_(B Q 1) = I_(B Q 2) = I_(B Q)\
-I_(C Q 1) = I_(C Q 2) = I_(C Q)\
-I_(E Q 1) = I_(E Q 2) = I_(E Q)\
-U_(C Q 1) = U_(C Q 2) = U_(C Q)\
-u_o = U_(C Q 1) - U_(C Q 2) = 0
+  I_(B Q 1) = I_(B Q 2) = I_(B Q)\
+  I_(C Q 1) = I_(C Q 2) = I_(C Q)\
+  I_(E Q 1) = I_(E Q 2) = I_(E Q)\
+  U_(C Q 1) = U_(C Q 2) = U_(C Q)\
+  u_o = U_(C Q 1) - U_(C Q 2) = 0
 $
 晶体管输入回路方程：
 $
-V_"EE" = I_(B Q) R_b + U_"BEQ" + 2 I_(E Q) R_e\
+  V_"EE" = I_(B Q) R_b + U_"BEQ" + 2 I_(E Q) R_e\
 $
 
 通常，$R_b$较小，且$I_"BQ"$很小，故
 $
-I_"EQ" approx (V_"EE" - U_"BEQ")/(2 R_e), I_"BQ" = I_"EQ"/(β + 1)\
-U_"CEQ" approx V_"CC" - I_"CQ" R_c + U_"BEQ"
+  I_"EQ" approx (V_"EE" - U_"BEQ") / (2 R_e), I_"BQ" = I_"EQ" / (β + 1)\
+  U_"CEQ" approx V_"CC" - I_"CQ" R_c + U_"BEQ"
 $
 
 3. 抑制共模信号：$R_e$的共模负反馈作用
 
 共模信号：数值相等、极性相同的输入信号，即$u_(I 1) = u_(I 2)$。
 
-共模放大倍数：$A_c = (Δ u_(O c))/(Δ u_(I c))$，参数理想对称时，$A_c = 0$。
+共模放大倍数：$A_c = (Δ u_(O c)) / (Δ u_(I c))$，参数理想对称时，$A_c = 0$。
 
 #figure(
   image("pic/2024-06-02-23-12-16.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 4. 放大差模信号
 
-差模信号：数值相等，极性相反的输入信号，即$u_(I 1) = -u_(I 2) = 1/2 u_(I d)$。
+差模信号：数值相等，极性相反的输入信号，即$u_(I 1) = -u_(I 2) = 1 / 2 u_(I d)$。
 
 $
-Delta i_(B 1) = - Delta i_(B 2)\
-Delta i_(C 1) = - Delta i_(C 2)\
-Delta i_(E 1) = - Delta i_(E 2)\
-Delta u_(C 1) = - Delta u_(C 2)\
-Delta u_O = 2 Delta u_(C 1)
+  Delta i_(B 1) = - Delta i_(B 2)\
+  Delta i_(C 1) = - Delta i_(C 2)\
+  Delta i_(E 1) = - Delta i_(E 2)\
+  Delta u_(C 1) = - Delta u_(C 2)\
+  Delta u_O = 2 Delta u_(C 1)
 $
 
 $Delta i_(E 1)=- Delta i_(E 2)$，Re中电流不变，即*$R_e$对差模信号无反馈作用*。
@@ -2938,12 +2934,12 @@ E点电压稳定，在交流等效电路中接地。
 
 #figure(
   image("pic/2024-05-28-09-12-44.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 差模放大倍数：
 $
-A_d = - (beta (R_C parallel R_L))/(R_b + r_"be")
+  A_d = - (beta (R_C parallel R_L)) / (R_b + r_"be")
 $
 
 共模抑制比$K_"CMR"$：综合考察差分放大电路放大差模信号的能力和抑制共模信号的能力。
@@ -2960,31 +2956,31 @@ $
 
 #figure(
   image("pic/2024-05-30-08-16-35.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
-静态工作点的选择和$R_c$有关，选择电流为$(V_"EE" - U_"CE")/R_C$
+静态工作点的选择和$R_c$有关，选择电流为$(V_"EE" - U_"CE") / R_C$
 
 #figure(
   image("pic/2024-06-02-23-25-02.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 单端输入双端输出
 
 #figure(
   image("pic/2024-06-03-00-35-01.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-03-00-35-51.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-03-00-36-26.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 差分放大电路的改进
@@ -3001,21 +2997,21 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 #figure(
   image("pic/2024-06-03-00-46-08.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 加调零电位器$R_W$
 
 #figure(
   image("pic/2024-06-03-00-46-50.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 场效应管差分放大电路
 
 #figure(
   image("pic/2024-06-03-00-47-23.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 功率放大电路
@@ -3024,12 +3020,12 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 ==== 功率放大电路研究的问题
 
-1. 性能指标：*输出功率和效率*。若已知$U_"om"$，则可得$P_"om"$。$P_"om" = U_"om"^2/(R_L)$。最大输出功率与电源损耗的平均功率之比为效率$η = P_"om"/P_"V"$。
+1. 性能指标：*输出功率和效率*。若已知$U_"om"$，则可得$P_"om"$。$P_"om" = U_"om"^2 / (R_L)$。最大输出功率与电源损耗的平均功率之比为效率$η = P_"om" / P_"V"$。
 
 2. 分析方法：因大信号作用，故应采用图解法。
 
 3. 晶体管的选用：根据极限参数选择晶体管。
-   
+
 在功放中，晶体管集电极或发射极电流的最大值接近最大集电极电流$I_"CM"$，管压降的最大值接近c-e反向击穿电压$U_"(BR)CEO"$， 集电极消耗功率的最大值接近集电极最大耗散功率$P_"CM"$。称为工作在*尽限状态*。
 
 ==== 对功率放大电路的要求
@@ -3081,12 +3077,12 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 #figure(
   image("pic/2024-05-30-08-25-22.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-30-08-28-47.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #pagebreak()
@@ -3118,7 +3114,7 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 #figure(
   image("pic/2024-06-03-01-23-10.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 局部反馈和级间反馈
@@ -3127,7 +3123,7 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 #figure(
   image("pic/2024-06-03-01-24-18.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 交流负的四种组态
@@ -3138,16 +3134,16 @@ $R_e$越大，每一边的漂移越小，共模负反馈越强，单端输出时
 
 #figure(
   image("pic/2024-06-03-01-29-33.png", width: 60%),
-  numbering: none
+  numbering: none,
 )
 
 将输出电压的一部分或全部引回到输入回路来影响净输入量的为*电压反馈*，即
 $
-dot(X)_0 = dot(U)_0
+  dot(X)_0 = dot(U)_0
 $
 将输出电流的一部分或全部引回到输入回路来影响净输入量的为*电流反馈*，即
 $
-dot(X)_0 = dot(I)_0
+  dot(X)_0 = dot(I)_0
 $
 
 ==== 串联反馈和并联反馈
@@ -3156,18 +3152,18 @@ $
 
 串联负反馈：
 $
-dot(U)_i = dot(U)_i^' + dot(U)_f
+  dot(U)_i = dot(U)_i^' + dot(U)_f
 $
 并联负反馈：
 $
-dot(I)_i = dot(I)_i^' + dot(I)_f
+  dot(I)_i = dot(I)_i^' + dot(I)_f
 $
 
-====  四种反馈组态
+==== 四种反馈组态
 
 #figure(
   image("pic/2024-06-03-01-31-44.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 在串联负反馈电路中不加恒流源信号，在并联负反馈电路中不加恒压源信号。
@@ -3184,7 +3180,7 @@ $
 
 #figure(
   image("pic/2024-06-03-01-49-13.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 直流反馈和交流反馈的判断
@@ -3193,7 +3189,7 @@ $
 
 #figure(
   image("pic/2024-06-03-01-50-16.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 正、负反馈（反馈极性）的判断
@@ -3202,17 +3198,17 @@ $
 
 #figure(
   image("pic/2024-06-03-01-51-14.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-03-01-51-44.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-03-01-52-13.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 电压反馈和电流反馈的判断
@@ -3221,7 +3217,7 @@ $
 
 #figure(
   image("pic/2024-06-03-01-53-07.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 串联反馈和并联反馈的判别
@@ -3230,7 +3226,7 @@ $
 
 #figure(
   image("pic/2024-06-03-01-53-50.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 负反馈放大电路的方框图及一般表达式
@@ -3239,34 +3235,34 @@ $
 
 #figure(
   image("pic/2024-06-03-01-55-59.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 负反馈放大电路放大倍数的一般表达式
 
 $
-dot(A) = dot(X)_o / dot(X)_i^'\
-dot(F) = dot(X)_f / dot(X)_o\
-dot(A)_f = dot(X)_o / dot(X)_i
+  dot(A) = dot(X)_o / dot(X)_i^'\
+  dot(F) = dot(X)_f / dot(X)_o\
+  dot(A)_f = dot(X)_o / dot(X)_i
 $
 
 则有
 
 $
-dot(A)_f = dot(A) / (1 + dot(A) dot(F))
+  dot(A)_f = dot(A) / (1 + dot(A) dot(F))
 $
 其中$dot(A) dot(F)$称为*环路放大倍数（环路增益）*。环路增益越大，负反馈越深，放大倍数越小。
 
 #figure(
   image("pic/2024-06-03-01-59-24.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 负反馈放大电路放大倍数和反馈系数的量纲
 
 #figure(
   image("pic/2024-06-03-02-01-05.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 关于负反馈的一些讨论
@@ -3276,12 +3272,12 @@ $
 在中频段，放大倍数、反馈系数等均为实数。
 
 $
-A_f = A / (1 + A F)\
-dd(A_f)/dd(A) = 1 / (1 + A F)^2\
-dd(A_f) = dd(A) / (1 + A F)^2\
-dd(A_f)/A_f = 1/(1 + A F) dd(A)/A
+  A_f = A / (1 + A F)\
+  dd(A_f) / dd(A) = 1 / (1 + A F)^2\
+  dd(A_f) = dd(A) / (1 + A F)^2\
+  dd(A_f) / A_f = 1 / (1 + A F) dd(A) / A
 $
-说明放大倍数减小到基本放大电路的$1/(1 + A F)$倍；放大倍数的稳定性是基本放大电路的$1 + A F$倍。
+说明放大倍数减小到基本放大电路的$1 / (1 + A F)$倍；放大倍数的稳定性是基本放大电路的$1 + A F$倍。
 
 === 改变输入电阻和输出电阻
 
@@ -3291,13 +3287,13 @@ $
 
 - *引入串联负反馈时*
 $
-R_i = U_i^' / I_i\
-R_(i f) = U_i / I_i = (U_i^' + U_f) / I_i  = (1 + A F) R_i
+  R_i = U_i^' / I_i\
+  R_(i f) = U_i / I_i = (U_i^' + U_f) / I_i = (1 + A F) R_i
 $
 - *引入并联负反馈时*
 $
-R_i = U_i / I_i\
-R_(i f) = U_i / I_i = U_i / (I_i + I_f) = R_i / (1 + A F)
+  R_i = U_i / I_i\
+  R_(i f) = U_i / I_i = U_i / (I_i + I_f) = R_i / (1 + A F)
 $
 *串联负反馈增大输入电阻，并联负反馈减小输入电阻。*
 
@@ -3311,13 +3307,13 @@ $
 
 - *引入电压负反馈时*
 $
-R_o = U_o / I_o\
-R_(o f) = U_o / I_o = U_o / ((U_o - (-A F U_o))/R_o) = R_o / (1 + A F)
+  R_o = U_o / I_o\
+  R_(o f) = U_o / I_o = U_o / ((U_o - (-A F U_o)) / R_o) = R_o / (1 + A F)
 $
 - *引入电流负反馈时*
 $
-I_o = U_o / R_o + (- A F I_o)\
-R_(o f) = U_o / I_o = (1 + A F) R_o
+  I_o = U_o / R_o + (- A F I_o)\
+  R_(o f) = U_o / I_o = (1 + A F) R_o
 $
 
 在$(1 + A F) -> ∞$时，引入电压负反馈$R_(o f) -> 0$，引入电流负反馈$R_(o f) -> ∞$。
@@ -3326,19 +3322,19 @@ $
 
 #figure(
   image("pic/2024-06-03-02-08-44.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 减小非线性失真
 
 #figure(
   image("pic/2024-06-03-02-09-15.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-03-02-09-55.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 引入负反馈的一般原则
@@ -3346,7 +3342,7 @@ $
 - 稳定Q点应引入直流负反馈，改善动态性能应引入交流负反馈；
 - 根据信号源特点，增大输入电阻应引入串联负反馈，减小输入电阻应引入并联负反馈；
 - 根据负载需要，需输出稳定电压（即减小输出电阻）的应引入电压负反馈，需输出稳定电流（即增大输出电阻）的应引入电流负反馈；
-- 从信号转换关系上看，输出电压是输入电压受控源的为电压串联负反馈，输出电压是输入电流受控源的为电压并联负反馈，输出电流是输入电压受控源的为电流串联负反馈，输出电流是输入电流受控源的为电流并联负反馈；当$(1+A F) >>1$时，它们的转换系数均约为$1/F$。
+- 从信号转换关系上看，输出电压是输入电压受控源的为电压串联负反馈，输出电压是输入电流受控源的为电压并联负反馈，输出电流是输入电压受控源的为电流串联负反馈，输出电流是输入电流受控源的为电流并联负反馈；当$(1+A F) >>1$时，它们的转换系数均约为$1 / F$。
 
 == 理想运放组成的基本运算电路
 
@@ -3360,21 +3356,21 @@ $
 
 #figure(
   image("pic/2024-06-04-08-19-09.png", width: 50%),
-  numbering: none
+  numbering: none,
 )
 
 $
-i_N = i_P = 0\
-u_P = u_I = 0
+  i_N = i_P = 0\
+  u_P = u_I = 0
 $
 在节点N处
 $
-i_F = i_R = u_1/R
+  i_F = i_R = u_1 / R
 $
 则有
 $
-u_O = - i_F R_f = - R_f / R u_1 \
-A_u = - R_f / R
+  u_O = - i_F R_f = - R_f / R u_1 \
+  A_u = - R_f / R
 $
 
 - 共模输入为0
@@ -3390,20 +3386,20 @@ $
 
 #figure(
   image("pic/2024-06-04-08-27-52.png", width: 50%),
-  numbering: none
+  numbering: none,
 )
 
 电压串联负反馈。
 
 $
-u_N = u_P = u_I\
-i_F = i_R = 0\
-i_R_f = i_R = u_1 / R\
+  u_N = u_P = u_I\
+  i_F = i_R = 0\
+  i_R_f = i_R = u_1 / R\
 $
 从而：
 $
-u_O = i_R(R_f + R) = (1 + R_f / R) u_1\
-A_u = 1 + R_f / R
+  u_O = i_R(R_f + R) = (1 + R_f / R) u_1\
+  A_u = 1 + R_f / R
 $
 
 - 输入电阻为无穷大。
@@ -3414,7 +3410,7 @@ $
 
 #figure(
   image("pic/2024-06-04-08-34-45.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 加减运算电路
@@ -3423,11 +3419,11 @@ $
 
 #figure(
   image("pic/2024-06-04-08-35-30.png", width: 50%),
-  numbering: none
+  numbering: none,
 )
 
 $
-u_O = - R_f / R_1 u_1 - R_f / R_2 u_2 - R_f / R_3 u_3\
+  u_O = - R_f / R_1 u_1 - R_f / R_2 u_2 - R_f / R_3 u_3\
 $
 
 
@@ -3435,19 +3431,19 @@ $
 
 #figure(
   image("pic/2024-06-04-09-10-04.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 加减运算
 
 #figure(
   image("pic/2024-06-04-09-13-12.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 电压并联&串联负反馈。
 
-- 共模：$(u_(I 1) + u_(I 2))/2$
+- 共模：$(u_(I 1) + u_(I 2)) / 2$
 
 由于负反馈之后的输出电阻极小，可以等价于电压源，这时候可以直接进行级联。
 
@@ -3543,12 +3539,12 @@ $
 == 集成运放组成的运算电路
 
 === 对数运算电路和指数运算电路
-   
+
 ==== 对数运算
 
 #figure(
   image("pic/2024-06-06-08-14-25.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 如果想对$-I_s$进行对数运算，可以将管子换成NPN型或者跟一个方向的跟随器。
@@ -3557,14 +3553,14 @@ $
 
 #figure(
   image("pic/2024-06-06-08-15-39.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 乘法、除法运算电路
 
 #figure(
   image("pic/2024-06-06-08-23-01.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 实现逆运算的方法
@@ -3596,13 +3592,13 @@ $
 
 #figure(
   image("pic/2024-06-06-08-33-35.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 4. 电压比较器中集成运放工作在非线性区
 #figure(
   image("pic/2024-06-06-08-34-26.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 单限比较器
@@ -3611,7 +3607,7 @@ $
 
 #figure(
   image("pic/2024-06-06-08-36-44.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 二极管：限幅，防止烧坏晶体管。稳压管——反向击穿电压稳定。
@@ -3620,7 +3616,7 @@ $
 
 #figure(
   image("pic/2024-06-06-08-38-28.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 将$U_"REF"$接到上面是为了不引入共模输入。
@@ -3629,31 +3625,31 @@ $
 
 #figure(
   image("pic/2024-06-06-08-41-34.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-06-06-08-43-20.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 1. 若要电压传输特性曲线左右移动，将接地改成$U_"REF"$
-   #figure(
-     image("pic/2024-06-06-08-50-37.png", width: 80%),
-      numbering: none
-   )
+  #figure(
+    image("pic/2024-06-06-08-50-37.png", width: 80%),
+    numbering: none,
+  )
 2. 若要电压传输特性曲线上下移动，加稳压管
 3. 若要改变输入电压过阈值电压时输出电压的跃变方向
-    #figure(
-      image("pic/2024-06-06-08-50-54.png", width: 80%),
-      numbering: none
-    )
+  #figure(
+    image("pic/2024-06-06-08-50-54.png", width: 80%),
+    numbering: none,
+  )
 
 === 窗口比较器
 
 #figure(
   image("pic/2024-06-06-08-51-45.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == A/D转换器
@@ -3802,12 +3798,12 @@ $
 
 运算电路与有源滤波器的比较
 - 相同之处
- - 电路中均引入深度负反馈，因而集成运放均工作在线性区。
- - 均具有“虚短”和“虚断”的特点，均可用节点电流法求解电路。
+  - 电路中均引入深度负反馈，因而集成运放均工作在线性区。
+  - 均具有“虚短”和“虚断”的特点，均可用节点电流法求解电路。
 - 不同之处
   - 运算电路研究的是时域问题，有源滤波电路研究的是频域问题；测试时，前者是在输入信号频率不变或直流信号下测量输出电压与输入电压有效值或幅值的关系，后者是在输入电压幅值不变的情况下测量输出电压幅值与输入电压频率的关系。
   - 运算电路用运算关系式描述输出电压与输入电压的关系，有源滤波器用电压放大倍数的幅频特性描述滤波特性。
-  
+
 === 概述
 
 #figure(
