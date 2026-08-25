@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 #import "@preview/physica:0.9.2": *
 
 = 门电路
@@ -119,11 +119,11 @@ CMOS可以理解为两个变化相反的可变电阻串联，从而起到开关�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      image("pic/2024-04-02-09-24-30.png", width: 80%),
-      caption: [
-        电压传输特性
-      ],
-    )],
+    image("pic/2024-04-02-09-24-30.png", width: 80%),
+    caption: [
+      电压传输特性
+    ],
+  )],
   [
     - AB段：$V_I < V_"GS(TH)N"$，$T_1$导通、$T_2$截止；$V_O = V_(O H) = V_"DD"$
 
@@ -219,10 +219,10 @@ $
 $
 从而能够得到：
 $
-  t &= R C ln((V(0) - V(oo)) / (V(t) - V(oo)))\
-  &= R C ln((V(oo) - V_"OL") / (V(oo) - V(t)))\
-  &= R C ln((V_"DD" - V(0)) / (V_"DD" - V_"TH"))\
-  &approx R C ln 2
+  t & = R C ln((V(0) - V(oo)) / (V(t) - V(oo))) \
+    & = R C ln((V(oo) - V_"OL") / (V(oo) - V(t))) \
+    & = R C ln((V_"DD" - V(0)) / (V_"DD" - V_"TH")) \
+    & approx R C ln 2
 $
 #newpara()
 
@@ -542,7 +542,7 @@ _设计举例：设计一个监视交通信号灯状态的逻辑电路_
 
 $
   (C I)_i = (C O)_(i-1)\
-  S_i = A_i plus.circle B_i plus.circle (C I)_i\
+  S_i = A_i plus.o B_i plus.o (C I)_i\
   (C O)_i = (A_i B_i) + (A_i + B_i) (C I)_i
 $
 

@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 *数字电路——用电压来编码信息*
 
@@ -85,17 +85,17 @@ Huffman编码：根据字符出现的频率，将出现频率高的字符用较�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      table(
-        columns: (auto, auto, auto),
-        align: horizon,
-        [*A*], [*B*], [*AB*],
-        [0], [0], [0],
-        [0], [1], [0],
-        [1], [0], [0],
-        [1], [1], [1],
-      ),
-      caption: [*AB*的真值表],
-    )],
+    table(
+      columns: (auto, auto, auto),
+      align: horizon,
+      [*A*], [*B*], [*AB*],
+      [0], [0], [0],
+      [0], [1], [0],
+      [1], [0], [0],
+      [1], [1], [1],
+    ),
+    caption: [*AB*的真值表],
+  )],
   [
     #figure(
       image("pic/2024-03-26-09-29-49.png", width: 30%),
@@ -117,17 +117,17 @@ Huffman编码：根据字符出现的频率，将出现频率高的字符用较�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      table(
-        columns: (auto, auto, auto),
-        align: horizon,
-        [*A*], [*B*], [*A+B*],
-        [0], [0], [0],
-        [0], [1], [1],
-        [1], [0], [1],
-        [1], [1], [1],
-      ),
-      caption: [*A+B*的真值表],
-    )],
+    table(
+      columns: (auto, auto, auto),
+      align: horizon,
+      [*A*], [*B*], [*A+B*],
+      [0], [0], [0],
+      [0], [1], [1],
+      [1], [0], [1],
+      [1], [1], [1],
+    ),
+    caption: [*A+B*的真值表],
+  )],
   [
     #figure(
       image("pic/2024-03-26-09-30-26.png", width: 30%),
@@ -147,15 +147,15 @@ Huffman编码：根据字符出现的频率，将出现频率高的字符用较�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      table(
-        columns: (auto, auto),
-        align: horizon,
-        [*A*], [*A'*],
-        [0], [1],
-        [1], [0],
-      ),
-      caption: [*A'*的真值表],
-    )],
+    table(
+      columns: (auto, auto),
+      align: horizon,
+      [*A*], [*A'*],
+      [0], [1],
+      [1], [0],
+    ),
+    caption: [*A'*的真值表],
+  )],
   [
     #figure(
       image("pic/2024-03-26-09-30-50.png", width: 30%),
@@ -195,17 +195,17 @@ Huffman编码：根据字符出现的频率，将出现频率高的字符用较�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      table(
-        columns: (auto, auto, auto),
-        align: horizon,
-        [*A*], [*B*], [*A⊕B*],
-        [0], [0], [0],
-        [0], [1], [1],
-        [1], [0], [1],
-        [1], [1], [0],
-      ),
-      caption: [*A⊕B*的真值表],
-    )],
+    table(
+      columns: (auto, auto, auto),
+      align: horizon,
+      [*A*], [*B*], [*A⊕B*],
+      [0], [0], [0],
+      [0], [1], [1],
+      [1], [0], [1],
+      [1], [1], [0],
+    ),
+    caption: [*A⊕B*的真值表],
+  )],
   [
     #figure(
       image("pic/2024-03-26-09-33-58.png", width: 30%),
@@ -225,17 +225,17 @@ Huffman编码：根据字符出现的频率，将出现频率高的字符用较�
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      table(
-        columns: (auto, auto, auto),
-        align: horizon,
-        [*A*], [*B*], [*A⊙B*],
-        [0], [0], [1],
-        [0], [1], [0],
-        [1], [0], [0],
-        [1], [1], [1],
-      ),
-      caption: [*A⊙B*的真值表],
-    )],
+    table(
+      columns: (auto, auto, auto),
+      align: horizon,
+      [*A*], [*B*], [*A⊙B*],
+      [0], [0], [1],
+      [0], [1], [0],
+      [1], [0], [0],
+      [1], [1], [1],
+    ),
+    caption: [*A⊙B*的真值表],
+  )],
   [
     #figure(
       image("pic/2024-03-26-09-34-48.png", width: 30%),
@@ -307,9 +307,9 @@ $
 $
 的反逻辑式为
 $
-  Y' &= (A' + B'C')(C' + D')\
-  &= A'C' + B' C' + A' D' + B'C' D'\
-  &= A'C' + B'C' + A' D'
+  Y' & = (A' + B'C')(C' + D') \
+     & = A'C' + B' C' + A' D' + B'C' D' \
+     & = A'C' + B'C' + A' D'
 $
 
 == 逻辑函数及其表示方法
@@ -508,10 +508,10 @@ $
 )
 
 $
-  Y &= sum m_i\
-  Y' &= sum_(k != i) m_k\
-  Y &= (sum_(k != i) m_k)'\
-  Y &= product_(k != i) m_k ' = product_(k != i) M_k
+   Y & = sum m_i \
+  Y' & = sum_(k != i) m_k \
+   Y & = (sum_(k != i) m_k)' \
+   Y & = product_(k != i) m_k ' = product_(k != i) M_k
 $
 *最小项之和 = 最大项之积 （二者编号取补）*
 
@@ -522,8 +522,8 @@ $
 *最简与或：*包含的乘积项已经最少，每个乘积项的因子也最少，称为最简的*与-或逻辑式*。
 
 $
-  Y_1 &= A B C + B' C + A C D\
-  Y_2 &= A C + B'C
+  Y_1 & = A B C + B' C + A C D \
+  Y_2 & = A C + B'C
 $
 
 === 公式化简法
@@ -532,11 +532,11 @@ $
 
 例：
 $
-  Y &= A C + B' C +B D' + C D' + A( B + C' ) + A'B C D' + A B' D E\
-  &= A C + B' C + B D' + C D' + A(B'C)' + A B' D E\
-  &= A C + B' C + B D' + C D' + A + A B' D E\
-  &= A + B' C + B D' + C D'\
-  &= A + B' C + B D'
+  Y & = A C + B' C +B D' + C D' + A( B + C' ) + A'B C D' + A B' D E \
+    & = A C + B' C + B D' + C D' + A(B'C)' + A B' D E \
+    & = A C + B' C + B D' + C D' + A + A B' D E \
+    & = A + B' C + B D' + C D' \
+    & = A + B' C + B D'
 $
 
 

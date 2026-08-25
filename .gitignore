@@ -1,0 +1,9 @@
+builds/
+files/
+notes.mk
+HW/*.pdf
+Lab/*
+!Lab/*/
+Lab/*/*
+!Lab/*/*.typ
+!Lab/*/pic

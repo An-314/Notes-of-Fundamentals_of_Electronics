@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 = 半导体基础知识
 == 半导体二极管和晶体管 semiconductor materials
@@ -395,9 +395,9 @@ $beta$不是一个常数（但在局部的$beta$会比较稳定）。*理想晶�
 )
 
 $
-  T (℃) ↑&→I_(C E O) ↑\
-  &→beta ↑\
-  &→u_(B E)"不变时" i_B ↑ , i_B "不变时" u_(B E) ↓
+  T (℃) ↑ & →I_(C E O) ↑ \
+          & →beta ↑ \
+          & →u_(B E)"不变时" i_B ↑ , i_B "不变时" u_(B E) ↓
 $
 
 ===== 主要参数
@@ -583,9 +583,9 @@ _例：*直接耦合放大电路*的直流通路和交流通路_
 
 静态：
 $
-  I_(B Q) &= (V_"BB" - U_(B E Q)) / R_b\
-  I_(C Q) &= beta I_(B Q)\
-  U_(C E Q) &= V_"CC" - I_(C Q) R_c
+    I_(B Q) & = (V_"BB" - U_(B E Q)) / R_b \
+    I_(C Q) & = beta I_(B Q) \
+  U_(C E Q) & = V_"CC" - I_(C Q) R_c
 $
 列晶体管输入、输出回路方程，将$U_(B E Q)$作为已知条件，令$I_(C Q)= β I_(B Q)$，可估算出静态工作点。
 
@@ -614,17 +614,17 @@ $
 #grid(
   columns: (1fr, 1fr),
   align(center)[#figure(
-      image("pic/2024-03-12-08-35-56.png", width: 80%),
-      caption: [
-        输入信号的放大
-      ],
-    )],
+    image("pic/2024-03-12-08-35-56.png", width: 80%),
+    caption: [
+      输入信号的放大
+    ],
+  )],
   align(center)[#figure(
-      image("pic/2024-03-12-08-38-25.png", width: 90%),
-      caption: [
-        输出信号的放大
-      ],
-    )],
+    image("pic/2024-03-12-08-38-25.png", width: 90%),
+    caption: [
+      输出信号的放大
+    ],
+  )],
 )
 
 $
@@ -639,17 +639,17 @@ $
 #grid(
   columns: (1fr, 1fr),
   [#figure(
-      image("pic/2024-03-12-08-50-21.png", width: 70%),
-      caption: [
-        截止失真的输入
-      ],
-    )],
+    image("pic/2024-03-12-08-50-21.png", width: 70%),
+    caption: [
+      截止失真的输入
+    ],
+  )],
   [#figure(
-      image("pic/2024-03-12-08-51-21.png", width: 90%),
-      caption: [
-        截止失真的输出
-      ],
-    )],
+    image("pic/2024-03-12-08-51-21.png", width: 90%),
+    caption: [
+      截止失真的输出
+    ],
+  )],
 )
 
 截至失真是从输入回路开始的，输入回路底部被削平，导致输出回路失真。
@@ -710,9 +710,9 @@ $
 ===== 直流模型：适于$Q$点的分析
 
 $
-  I_(B Q) &= (V_"BB" - U_(B E Q)) / R_b\
-  I_(C Q) &= beta I_(B Q)\
-  U_(C E Q) &= V_"CC" - I_(C Q) R_c
+    I_(B Q) & = (V_"BB" - U_(B E Q)) / R_b \
+    I_(C Q) & = beta I_(B Q) \
+  U_(C E Q) & = V_"CC" - I_(C Q) R_c
 $
 
 #figure(
@@ -726,13 +726,13 @@ $
 
 在低频、小信号作用下的关系式：
 $
-  dd(u_(B E)) &= (diff u_(B E)) / (diff i_B)bar_(U_(C E)) dd(i_B) + (diff u_(B E)) / (diff u_(C E))bar_(I_B) dd(u_(C E))\
-  dd(i_C) &= (diff i_C) / (diff i_B)bar_(U_(C E)) dd(i_B) + (diff i_C) / (diff u_(C E))bar_(I_B) dd(u_(C E))
+  dd(u_(B E)) & = ("d" u_(B E)) / ("d" i_B)bar_(U_(C E)) dd(i_B) + ("d" u_(B E)) / ("d" u_(C E))bar_(I_B) dd(u_(C E)) \
+      dd(i_C) & = ("d" i_C) / ("d" i_B)bar_(U_(C E)) dd(i_B) + ("d" i_C) / ("d" u_(C E))bar_(I_B) dd(u_(C E))
 $
 用相量表示：
 $
-  accent(U, dot)_(B E) &= h_(11) accent(I, dot)_B + h_(12) accent(U, dot)_(C E)\
-  accent(I, dot)_C &= h_(21) accent(I, dot)_B + h_(22) accent(U, dot)_(C E)
+  accent(U, dot)_(B E) & = h_(11) accent(I, dot)_B + h_(12) accent(U, dot)_(C E) \
+      accent(I, dot)_C & = h_(21) accent(I, dot)_B + h_(22) accent(U, dot)_(C E)
 $
 可以得到交流等效模型：
 #figure(
@@ -744,10 +744,10 @@ $
 
 *$h$参数的物理意义*：
 
-- $h_(11) = ((diff u_(B E)) / (diff i_B))bar_(U_(C E)) = r_(b e)$：$b-e$间的动态电阻
-- $h_(12) = (diff u_(B E)) / (diff u_(C E))bar_(I_B)$：内反馈系数
-- $h_(21) = (diff i_C) / (diff i_B)bar_(U_(C E)) = beta$：电流放大系数
-- $h_(22) = (diff i_C) / (diff u_(C E))bar_(I_B)= 1 / r_(c e)$：$c-e$间的电导
+- $h_(11) = (("d" u_(B E)) / ("d" i_B))bar_(U_(C E)) = r_(b e)$：$b-e$间的动态电阻
+- $h_(12) = ("d" u_(B E)) / ("d" u_(C E))bar_(I_B)$：内反馈系数
+- $h_(21) = ("d" i_C) / ("d" i_B)bar_(U_(C E)) = beta$：电流放大系数
+- $h_(22) = ("d" i_C) / ("d" u_(C E))bar_(I_B)= 1 / r_(c e)$：$c-e$间的电导
 
 $h_(12)$和$h_(22)$的作用可忽略不计。
 
@@ -772,9 +772,9 @@ $
 )
 
 $
-  accent(A, dot)_u &= (accent(U, dot)_o) / (accent(U, dot)_i) = - (beta R_C) / (R_b + r_(b e))\
-  R_i &= U_i / I_i = R_b + r_(b e)\
-  R_o &= R_C
+  accent(A, dot)_u & = (accent(U, dot)_o) / (accent(U, dot)_i) = - (beta R_C) / (R_b + r_(b e)) \
+               R_i & = U_i / I_i = R_b + r_(b e) \
+               R_o & = R_C
 $
 
 *阻容耦合共射放大电路的动态分析*
@@ -846,8 +846,8 @@ $
     ],
   )
   $
-    V_"BB" &= R_(b 1) / (R_(b 1) + R_(b 2)) V_"CC"\
-    R_b &= R_(b 1) parallel R_(b 2)\
+    V_"BB" & = R_(b 1) / (R_(b 1) + R_(b 2)) V_"CC" \
+       R_b & = R_(b 1) parallel R_(b 2) \
   $
   $R_b$上静态电压是否可忽略不计？
   $
@@ -857,10 +857,10 @@ $
 
   剩余参数：
   $
-    U_(B Q) &= R_(b 1) / (R_(b 1) + R_(b 2)) V_"CC"\
-    I_(E Q) &= (U_(B Q) - U_(B E Q)) / R_e\
-    I_(B Q) &= I_(E Q) / (1 + beta)\
-    U_(C E Q) &= V_"CC" - I_(C Q) R_C - I_(E Q) R_e approx V_"CC" - I_(E Q) (R_C + R_e)
+      U_(B Q) & = R_(b 1) / (R_(b 1) + R_(b 2)) V_"CC" \
+      I_(E Q) & = (U_(B Q) - U_(B E Q)) / R_e \
+      I_(B Q) & = I_(E Q) / (1 + beta) \
+    U_(C E Q) & = V_"CC" - I_(C Q) R_C - I_(E Q) R_e approx V_"CC" - I_(E Q) (R_C + R_e)
   $
 + 动态分析
 
@@ -872,9 +872,9 @@ $
   )
 
   $
-    accent(A, dot)_u &= (accent(U, dot)_o) / (accent(U, dot)_i) = - (beta R_L) / (r_(b e))\
-    R_i &= R_(b 1) parallel R_(b 2) parallel r_(b e)\
-    R_o &= R_C
+    accent(A, dot)_u & = (accent(U, dot)_o) / (accent(U, dot)_i) = - (beta R_L) / (r_(b e)) \
+                 R_i & = R_(b 1) parallel R_(b 2) parallel r_(b e) \
+                 R_o & = R_C
   $
 
   #figure(
@@ -914,13 +914,13 @@ $
 )
 
 $
-  V_"BB" &= I_(B Q) R_b + U_(B E Q) + I_(E Q) R_e\
-  V_"CC" &= U_(C E Q) + I_(E Q) R_e\
+  V_"BB" & = I_(B Q) R_b + U_(B E Q) + I_(E Q) R_e \
+  V_"CC" & = U_(C E Q) + I_(E Q) R_e \
 $
 $
-  I_(B Q) &= (V_"BB" - U_(B E Q)) / (R_b + (1 + beta) R_e)\
-  I_(E Q) &= (1 + beta) I_(B Q)\
-  U_(C E Q) &= V_"CC" - I_(E Q) R_e
+    I_(B Q) & = (V_"BB" - U_(B E Q)) / (R_b + (1 + beta) R_e) \
+    I_(E Q) & = (1 + beta) I_(B Q) \
+  U_(C E Q) & = V_"CC" - I_(E Q) R_e
 $
 ===== 动态分析
 
@@ -932,19 +932,19 @@ $
 )
 
 $
-  accent(A, dot)_u &= (accent(U, dot)_o) / (accent(U, dot)_i) = ((1 + beta)R_e) / (R_b + r_(b e) + (1 + beta)R_e)\
+  accent(A, dot)_u & = (accent(U, dot)_o) / (accent(U, dot)_i) = ((1 + beta)R_e) / (R_b + r_(b e) + (1 + beta)R_e) \
 $
 若$(1+beta)R_e >> R_b + r_(b e)$，则$accent(A, dot)_u -> 1$：*射极跟随器*。
 $
-  R_i &= R_b + r_(b e) + (1 + beta) R_e\
+  R_i & = R_b + r_(b e) + (1 + beta) R_e \
 $
 从基极看$R_e$，被增大到$1+beta$倍。带负载电阻后：
 $
-  R_i &= R_b + r_(b e) + (1 + beta) (R_e parallel R_L)\
+  R_i & = R_b + r_(b e) + (1 + beta) (R_e parallel R_L) \
 $
 *$R_i$与负载有关。*
 $
-  R_o &= R_e parallel (R_b + r_(b e)) / (1 + beta)
+  R_o & = R_e parallel (R_b + r_(b e)) / (1 + beta)
 $
 从射极看基极回路电阻，被减小到$1+β$倍。
 
@@ -964,13 +964,13 @@ $
 ===== 静态分析
 
 $
-  V_"BB" &= U_(B E Q) + I_(E Q) R_e\
-  V_"CC" &= U_(C E Q) - U_(B E Q) + I_(C Q) R_e\
+  V_"BB" & = U_(B E Q) + I_(E Q) R_e \
+  V_"CC" & = U_(C E Q) - U_(B E Q) + I_(C Q) R_e \
 $
 $
-  I_(E Q) &= (V_"BB" - U_(B E Q)) / R_e\
-  I_(B Q) &= I_(E Q) / (1 + beta)\
-  U_(C E Q) &= V_"CC" - I_(E Q) R_e + U_(B E Q)
+    I_(E Q) & = (V_"BB" - U_(B E Q)) / R_e \
+    I_(B Q) & = I_(E Q) / (1 + beta) \
+  U_(C E Q) & = V_"CC" - I_(E Q) R_e + U_(B E Q)
 $
 
 ===== 动态分析
@@ -983,9 +983,9 @@ $
 )
 
 $
-  accent(A, dot)_u &= (accent(U, dot)_o) / (accent(U, dot)_i) = (beta R_c) / (r_(b e) + (1 + beta) R_e)\
-  R_i &= R_e + r_(b e) / (1 + beta)\
-  R_o &= R_c
+  accent(A, dot)_u & = (accent(U, dot)_o) / (accent(U, dot)_i) = (beta R_c) / (r_(b e) + (1 + beta) R_e) \
+               R_i & = R_e + r_(b e) / (1 + beta) \
+               R_o & = R_c
 $
 
 ===== 特点
@@ -1136,7 +1136,7 @@ $
 - 不同型号的管子$U_(G S("off"))$ 、$I_"DSS"$将不同。
 - 跨导:
   $
-    g_m = (diff i_D) / (diff u_(G S)) |_(U_(D S))
+    g_m = ("d" i_D) / ("d" u_(G S)) |_(U_(D S))
   $
 
 ==== MOSFET(金属氧化物半导体场效应管)
@@ -1251,9 +1251,9 @@ $
 )
 
 $
-  U_"DSQ" &= V_"BB" \
-  I_"DQ" &= I_"DO" (1 - u_"BB" / U_("G S(th)"))^2\
-  U_"DSQ" &= V_"DD" - I_"DQ" R_D
+  U_"DSQ" & = V_"BB" \
+   I_"DQ" & = I_"DO" (1 - u_"BB" / U_("G S(th)"))^2 \
+  U_"DSQ" & = V_"DD" - I_"DQ" R_D
 $
 ==== 自给偏压电路
 
@@ -1265,15 +1265,15 @@ $
 )
 
 $
-  U_(G Q) &= 0, U_(S Q)=I_(D Q)R_s\
-  U_(G S Q) &= U_(G Q) - U_(S Q) = -I_(D Q)R_s\
+    U_(G Q) & = 0, U_(S Q)=I_(D Q)R_s \
+  U_(G S Q) & = U_(G Q) - U_(S Q) = -I_(D Q)R_s \
 $
 
 由正电源获得负偏压称为自给偏压。
 
 $
-  I_(D Q) &= I_"DSS" (1 - U_(G S Q) / U_(G S("OFF")))^2\
-  U_(D S Q) &= V_"DD" - I_(D Q) (R_d +R_s)
+    I_(D Q) & = I_"DSS" (1 - U_(G S Q) / U_(G S("OFF")))^2 \
+  U_(D S Q) & = V_"DD" - I_(D Q) (R_d +R_s)
 $
 
 ==== 分压式偏置电路
@@ -1288,10 +1288,10 @@ $
 )
 
 $
-  U_(G Q) &= U_(A Q) = R_(g 1) / (R_(g 1) + R_(g 2)) V_"DD"\
-  U_(S Q) &= I_(D Q) R_s\
-  I_(D Q) &= I_"DO" (1 - U_(G S Q) / U_(G S("th")))^2\
-  U_(D S Q) &= V_"DD" - I_(D Q) (R_d + R_s)
+    U_(G Q) & = U_(A Q) = R_(g 1) / (R_(g 1) + R_(g 2)) V_"DD" \
+    U_(S Q) & = I_(D Q) R_s \
+    I_(D Q) & = I_"DO" (1 - U_(G S Q) / U_(G S("th")))^2 \
+  U_(D S Q) & = V_"DD" - I_(D Q) (R_d + R_s)
 $
 
 === 场效应管放大电路的动态分析
@@ -1338,9 +1338,9 @@ $
 可以与共射电路对比：方向放大。
 
 $
-  accent(A, dot)_u &= (accent(U, dot)_o) / (accent(U, dot)_i) = - g_m R_D \
-  R_i &= oo \
-  R_o &= R_D
+  accent(A, dot)_u & = (accent(U, dot)_o) / (accent(U, dot)_i) = - g_m R_D \
+               R_i & = oo \
+               R_o & = R_D
 $
 
 ==== 基本共漏放大电路的动态分析

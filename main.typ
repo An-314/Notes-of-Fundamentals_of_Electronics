@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 #show: scripst.with(
   template: "book",
@@ -9,6 +9,8 @@
   time: "甲辰春夏于清华园",
   contents: true,
   content-depth: 3,
+  par-leading: 0.8em,
+  font-size: 12pt,
 )
 
 #pagebreak(weak: true)
