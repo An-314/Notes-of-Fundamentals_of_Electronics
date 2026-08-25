@@ -7,3 +7,4 @@ Lab/*
 Lab/*/*
 !Lab/*/*.typ
 !Lab/*/pic
+!Lab/*/*.v
